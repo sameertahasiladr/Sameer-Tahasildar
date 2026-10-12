@@ -1,0 +1,135 @@
+import fs from 'fs';
+
+// Generate a valid PDF-1.4 file containing Sameer Tahasildar's resume
+const pdfContent = `%PDF-1.4
+1 0 obj
+<<
+  /Type /Catalog
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages
+  /Kids [3 0 R]
+  /Count 1
+>>
+endobj
+3 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 595 842]
+  /Contents 4 0 R
+  /Resources <<
+    /Font <<
+      /F1 5 0 R
+      /F2 6 0 R
+    >>
+  >>
+>>
+endobj
+4 0 obj
+<<
+  /Length 1200
+>>
+stream
+BT
+/F1 20 Tf
+40 800 Td
+(SAMEER TAHASILDAR) Tj
+0 -20 Td
+/F2 10 Tf
+(Full Stack Developer | Old Goa, India | sameertahasildar077@gmail.com | +91-9096265188) Tj
+0 -15 Td
+(LinkedIn: linkedin.com/in/sameer-tahasildar077 | GitHub: github.com/sameertahasiladr) Tj
+0 -30 Td
+/F1 13 Tf
+(PROFESSIONAL SUMMARY) Tj
+0 -15 Td
+/F2 10 Tf
+(Full Stack Developer building high-performance web applications and RESTful APIs across e-commerce,) Tj
+0 -12 Td
+(real estate, CRM, and automotive domains. Proficient in React, Vue/Nuxt, NestJS, Node.js, TypeScript.) Tj
+0 -25 Td
+/F1 13 Tf
+(TECHNICAL SKILLS) Tj
+0 -15 Td
+/F2 10 Tf
+(Languages: JavaScript (ES6+), TypeScript, Python, PHP) Tj
+0 -12 Td
+(Frontend: React.js, Vue.js, Nuxt.js, Angular, HTML5, CSS3, Tailwind CSS, ShadCN UI) Tj
+0 -12 Td
+(Backend: Node.js, NestJS, FastAPI, Laravel, REST APIs, Webhooks) Tj
+0 -12 Td
+(Databases: MySQL, MongoDB, PostgreSQL | Cloud: AWS, Git/GitHub, Vercel, Netlify, Cloudinary) Tj
+0 -12 Td
+(CRM & Automation: Zoho CRM, Zoho Creator, Deluge | Testing: Playwright, API Load Testing) Tj
+0 -25 Td
+/F1 13 Tf
+(EXPERIENCE) Tj
+0 -15 Td
+/F1 11 Tf
+(Software Developer - Risban Pvt. Ltd, Margao, Goa (Nov 2025 - Present)) Tj
+0 -14 Td
+/F2 10 Tf
+(- Architected and deployed enterprise CRM solutions with Zoho CRM, Zoho Creator, and Deluge.) Tj
+0 -12 Td
+(- Built REST API integrations, custom functions, blueprints, and webhooks.) Tj
+0 -18 Td
+/F1 11 Tf
+(Associate Developer - Worley Ventures, Chennai (Jun 2025 - Nov 2025)) Tj
+0 -14 Td
+/F2 10 Tf
+(- Built and maintained reusable React component library for enterprise web interfaces.) Tj
+0 -18 Td
+/F1 11 Tf
+(Full Stack Developer Intern - Creative Capsule, Verna, Goa (Nov 2024 - Apr 2025)) Tj
+0 -14 Td
+/F2 10 Tf
+(- Designed and optimized REST APIs with NestJS; co-developed Quotes App & Spelling Bee in Nuxt.js.) Tj
+0 -25 Td
+/F1 13 Tf
+(EDUCATION) Tj
+0 -15 Td
+/F2 10 Tf
+(Master of Computer Science in Information Technology - Goa University (2023 - 2025)) Tj
+0 -12 Td
+(Bachelor of Computer Applications - Goa University (2020 - 2023)) Tj
+ET
+endstream
+endobj
+5 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Helvetica-Bold
+>>
+endobj
+6 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Helvetica
+>>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000262 00000 n 
+0000001514 00000 n 
+0000001585 00000 n 
+trailer
+<<
+  /Size 7
+  /Root 1 0 R
+>>
+startxref
+1651
+%%EOF`;
+
+fs.writeFileSync('public/resume.pdf', pdfContent);
+console.log('resume.pdf created successfully');

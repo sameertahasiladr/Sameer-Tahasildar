@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --color-sand: #F6EFE3;
+    --color-sand-paper: #FCF8F2;
+    --color-sand-muted: #EFE4D2;
+    --color-sand-border: #E3D4BE;
+    --color-ocean: #0E4D52;
+    --color-ocean-dark: #072B2E;
+    --color-ocean-light: #166A70;
+    --color-terracotta: #C8553D;
+    --color-terracotta-dark: #A43F2A;
+    --color-sunset: #E9A23B;
+    --color-ink: #18282B;
+    --color-ink-muted: #4B6366;
+    
+    --bg-page: var(--color-sand);
+    --bg-card: var(--color-sand-paper);
+    --border-card: var(--color-sand-border);
+    --text-primary: var(--color-ocean-dark);
+    --text-secondary: var(--color-ink-muted);
+    --accent-primary: var(--color-terracotta);
+    --accent-secondary: var(--color-sunset);
+  }
+
+  .dark, html.dark, body.dark, [data-theme="dark"] {
+    --color-sand: #0B1522;
+    --color-sand-paper: #121F33;
+    --color-sand-muted: #1A2C46;
+    --color-sand-border: #263C5C;
+    --color-ocean: #F3EBDD;
+    --color-ocean-dark: #F3EBDD;
+    --color-ocean-light: #A5B6CE;
+    --color-night-bg: #0B1522;
+    --color-night-paper: #121F33;
+    --color-night-muted: #1A2C46;
+    --color-night-border: #263C5C;
+    --color-night-text: #F3EBDD;
+    --color-night-sub: #A5B6CE;
+    
+    --bg-page: var(--color-night-bg);
+    --bg-card: var(--color-night-paper);
+    --border-card: var(--color-night-border);
+    --text-primary: var(--color-night-text);
+    --text-secondary: var(--color-night-sub);
+    --accent-primary: var(--color-terracotta);
+    --accent-secondary: var(--color-sunset);
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.dark body, body.dark, [data-theme="dark"] body {
+    background-color: #0B1522;
+    color: #F3EBDD;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: "opsz" 36;
+  }
+
+  .font-mono, code, kbd {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Fallback theme guarantees for cards in Night in Goa */
+.dark .bg-\[\#FCF8F2\], [data-theme="dark"] .bg-\[\#FCF8F2\] {
+  background-color: #121F33 !important;
+}
+.dark .bg-\[\#FAF6EE\], [data-theme="dark"] .bg-\[\#FAF6EE\] {
+  background-color: #121F33 !important;
+}
+.dark .border-\[\#E3D4BE\], [data-theme="dark"] .border-\[\#E3D4BE\] {
+  border-color: #263C5C !important;
+}
+.dark .text-\[\#072B2E\], [data-theme="dark"] .text-\[\#072B2E\] {
+  color: #F3EBDD !important;
+}
+.dark .text-\[\#4B6366\], [data-theme="dark"] .text-\[\#4B6366\] {
+  color: #A5B6CE !important;
+}
+
+/* Subtle paper grain texture overlay */
+.paper-grain {
+  background-image: radial-gradient(rgba(14, 77, 82, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .paper-grain {
+  background-image: radial-gradient(rgba(243, 235, 221, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Azulejo Ceramic Tile Accent Border Pattern */
+.azulejo-strip {
+  background-color: transparent;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(14, 77, 82, 0.12) 0, rgba(14, 77, 82, 0.12) 2px, transparent 0, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(14, 77, 82, 0.12) 0, rgba(14, 77, 82, 0.12) 2px, transparent 0, transparent 10px);
+}
+
+.dark .azulejo-strip {
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(233, 162, 59, 0.15) 0, rgba(233, 162, 59, 0.15) 2px, transparent 0, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(233, 162, 59, 0.15) 0, rgba(233, 162, 59, 0.15) 2px, transparent 0, transparent 10px);
+}
+
+/* Postcard Postage Stamp Perforation Border */
+.stamp-border {
+  border: 2px dashed rgba(200, 85, 61, 0.4);
+  background: radial-gradient(circle at top left, transparent 6px, var(--bg-card) 6px),
+              radial-gradient(circle at top right, transparent 6px, var(--bg-card) 6px),
+              radial-gradient(circle at bottom left, transparent 6px, var(--bg-card) 6px),
+              radial-gradient(circle at bottom right, transparent 6px, var(--bg-card) 6px);
+}
+
+/* Postmark stamp seal */
+.postmark-seal {
+  position: relative;
+  border: 1.5px double currentColor;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.85;
+}
+
+/* Custom cmdk palette styles */
+[cmdk-root] {
+  max-width: 640px;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 20px 40px -15px rgba(14, 77, 82, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dark [cmdk-root] {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+}
+
+[cmdk-input] {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-card);
+  color: var(--text-primary);
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+}
+
+[cmdk-item] {
+  cursor: pointer;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  color: var(--text-primary);
+  user-select: none;
+  transition: all 120ms ease;
+  font-size: 14px;
+}
+
+[cmdk-item][data-selected="true"] {
+  background: rgba(200, 85, 61, 0.12);
+  color: var(--accent-primary);
+}
+
+.dark [cmdk-item][data-selected="true"] {
+  background: rgba(233, 162, 59, 0.16);
+  color: var(--accent-secondary);
+}
+
+[cmdk-group-heading] {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 12px 16px 6px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* 3D Physical Postcard Flip */
+.perspective-1200 {
+  perspective: 1200px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Airmail Perforation and Border */
+.airmail-strip {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #C8553D 0,
+    #C8553D 14px,
+    transparent 14px,
+    transparent 20px,
+    #0E4D52 20px,
+    #0E4D52 34px,
+    transparent 34px,
+    transparent 40px
+  );
+}
+
+/* Postcard Stamp Jagged Border */
+.stamp-edge {
+  background-size: 12px 12px;
+  background-position: 0 0;
+}
